@@ -26,10 +26,9 @@
     </section>
 
 
-
     <section>
       <section>
-        <h4>Elm is functional programming language that compiles to JavaScript.</h4>
+        <h4>Elm is purely functional programming language that compiles to JavaScript.</h4>
         <ul>
           <li><p class="fragment">🚀fast</p></li>
           <li><p class="fragment">💎hard to break</p></li>
@@ -58,6 +57,221 @@
       </section>
     </section>
 
+    <section>
+      <section>
+        <h2>Elm compiler</h2>
+      </section>
+      <section>
+        Elm ensures that errors will happen at compile time, in front of a developer, instead of runtime, in front of a
+        user. — Why Elm
+      </section>
+      <section>
+        <p>Example #1</p>
+        <img data-src="https://miro.medium.com/max/854/0*4jYuBgAtdoRQ1iAf.png">
+      </section>
+      <section>
+        <p>Example #2</p>
+        <img data-src="https://miro.medium.com/max/957/0*Y894DXUA-mG2lgwj.jpg">
+      </section>
+    </section>
+
+    <section>
+      <section>
+        <h2>Code Examples</h2>
+      </section>
+      <section>
+        <pre><code data-trim data-noescape>
+          mathPlease x y = (x + y) * 5
+        </code></pre>
+      </section>
+
+      <section>
+        <section data-markdown>
+            <textarea data-template>
+```elm
+absolutelyMoreMath x =
+  let
+    y = 3
+    z = 30
+  in
+    (x + y) * z
+```
+            </textarea>
+        </section>
+      </section>
+
+      <section>
+        <section data-markdown>
+            <textarea data-template>
+```elm [1-7]
+aboveTen 5
+aboveTen (20 / 2)
+mathPlease 5 7
+mathPlease (20 * 2) 5
+```
+            </textarea>
+        </section>
+      </section>
+    </section>
+
+    <section>
+      <section>
+        <h2>Piping Functions</h2>
+        <p class="fragment"> |> </p>
+      </section>
+      <section>
+        <section data-markdown>
+            <textarea data-template>
+```elm [1-7]
+import String
+formatString myString =
+  myString
+      |> String.reverse
+      |> String.append "Hello "
+      |> String.reverse
+```
+            </textarea>
+        </section>
+        <section data-markdown class="fragment">
+            <textarea data-template>
+                        VS
+```javascript [1-7]
+function formatString(myString){
+  var reversed = myString.reverse();
+  var with_hello = "Hello " + reversed;
+  return with_hello.reverse();
+}
+```
+            </textarea>
+        </section>
+      </section>
+      <section>
+        <img data-src="assets/images/mdn-pipe.png" class="chart">
+        <img data-src="assets/images/compt.png" class="chart">
+      </section>
+    </section>
+
+    <section>
+      <section>
+        <h2>Record Types</h2>
+      </section>
+      <section>
+        <section data-markdown>
+            <textarea data-template>
+```elm [1-7]
+type alias Person =
+  { name : String
+  , age : Int
+  }
+```
+            </textarea>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+            <textarea data-template>
+```elm [1-7]
+greet : Person -> Int -> String
+greet person numberOfCats =
+  "Hello " ++ person.name ++
+  ", you have " ++ toString numberOfCats ++ " cats."
+```
+            </textarea>
+        </section>
+      </section>
+      <section>
+        <pre><code data-trim data-noescape>
+          if (person.name) {}
+
+          person.hasOwnProperty(name)
+       </code></pre>
+        <img class="icon" data-src="https://thumbs.gfycat.com/SplendidKindlyGavial-size_restricted.gif">
+
+      </section>
+    </section>
+
+    <section>
+      <section>
+        <h2>Union types</h2>
+      </section>
+      <section>
+        <section data-markdown>
+            <textarea data-template>
+```elm
+typeHokeyPokey = LeftFootIn | LeftFootOut | ShakeItAllAbout
+```
+            </textarea>
+        </section>
+
+      </section>
+      <section>
+        <section data-markdown>
+            <textarea data-template>
+```elm
+dance : HokeyPokey -> String
+dance hokey =
+  case hokey of
+    LeftFootIn ->
+      "OK, got it, left foot in."
+    LeftFootOut ->
+      "Wait, I thought I just put my left foot in?"
+    ShakeItAllAbout ->
+      "What are we trying to accomplish here?"
+```
+            </textarea>
+        </section>
+        <img data-src="assets/images/giphy.gif">
+      </section>
+
+      <section>
+        <section data-markdown>
+            <textarea data-template>
+```elm
+dance : HokeyPokey -> String
+dance hokey =
+  case hokey of
+    LeftFootIn ->
+      "OK, got it, left foot in."
+    LeftFootOut ->
+      "Wait, I thought I just put my left foot in?"
+    ShakeItAllAbout ->
+      "What are we trying to accomplish here?"
+```
+            </textarea>
+        </section>
+      </section>
+
+    </section>
+
+    <section>
+      <section>
+        <h2>Hello, World</h2>
+      </section>
+      <section>
+        <section data-markdown>
+            <textarea data-template>
+```elm [1-7]
+import Html exposing (text)
+
+main =
+  text "Hello!"
+```
+            </textarea>
+        </section>
+        <img data-src="assets/images/img.png">
+      </section>
+    </section>
+
+    <section>
+      <section>
+        <h2>Conclusion</h2>
+      </section>
+
+    <section>
+      <img data-src="assets/images/future.gif">
+      </section>
+    </section>
+
   </div>
 </div>
 
@@ -66,13 +280,8 @@
 <script src="plugin/markdown/markdown.js"></script>
 <script src="plugin/highlight/highlight.js"></script>
 <script>
-  // More info about initialization & config:
-  // - https://revealjs.com/initialization/
-  // - https://revealjs.com/config/
   Reveal.initialize({
     hash: true,
-
-    // Learn about plugins: https://revealjs.com/plugins/
     plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
   });
 </script>
